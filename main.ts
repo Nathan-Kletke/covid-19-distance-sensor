@@ -1,6 +1,9 @@
 input.onButtonPressed(Button.A, function () {
     control.reset()
 })
+input.onButtonPressed(Button.B, function () {
+    control.reset()
+})
 basic.forever(function () {
     basic.pause(60000)
     basic.showString("Remember to socially distance!")
