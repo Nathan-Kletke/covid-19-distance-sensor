@@ -25,9 +25,7 @@ basic.forever(function () {
             . . # . .
             `)
         music.playTone(262, music.beat(BeatFraction.Whole))
-
         basic.clearScreen()
-
     } else if (radio.receivedPacket(RadioPacketProperty.SignalStrength) > -81) {
         basic.clearScreen()
     }
@@ -36,4 +34,3 @@ basic.forever(function () {
         basic.pause(1000)
     }
 })
-
