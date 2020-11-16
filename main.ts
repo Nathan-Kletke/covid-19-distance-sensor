@@ -1,8 +1,8 @@
 input.onButtonPressed(Button.A, function () {
-    control.reset()
+    basic.clearScreen()
 })
 input.onButtonPressed(Button.B, function () {
-    control.reset()
+    basic.clearScreen()
 })
 basic.forever(function () {
     basic.pause(600000)
@@ -17,6 +17,6 @@ basic.forever(function () {
         basic.showIcon(IconNames.No)
         music.playTone(262, music.beat(BeatFraction.Whole))
     } else if (radio.receivedPacket(RadioPacketProperty.SignalStrength) > -81) {
-        control.reset()
+        basic.clearScreen()
     }
 })
