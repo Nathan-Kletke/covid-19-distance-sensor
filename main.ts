@@ -14,7 +14,13 @@ basic.forever(function () {
     radio.setTransmitPower(0.2)
     radio.sendValue("name", 0)
     if (radio.receivedPacket(RadioPacketProperty.SignalStrength) <= -81) {
-        basic.showIcon(IconNames.No)
+        basic.showLeds(`
+            . . # . .
+            . . # . .
+            . . # . .
+            . . . . .
+            . . # . .
+            `)
         music.playTone(262, music.beat(BeatFraction.Whole))
     } else if (radio.receivedPacket(RadioPacketProperty.SignalStrength) > -81) {
         basic.clearScreen()
