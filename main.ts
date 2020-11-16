@@ -5,7 +5,7 @@ input.onButtonPressed(Button.B, function () {
     control.reset()
 })
 basic.forever(function () {
-    basic.pause(60000)
+    basic.pause(600000)
     basic.showString("Remember to socially distance!")
     music.playMelody("C E G C5 B G E C ", 120)
 })
