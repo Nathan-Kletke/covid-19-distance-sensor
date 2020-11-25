@@ -4,6 +4,15 @@ input.onButtonPressed(Button.A, function () {
 })
 input.onButtonPressed(Button.B, function () {
     basic.clearScreen()
+    basic.showString("This is your Temperature Checker.")
+    basic.showString("Please place the Micro:Bit to your forehead.")
+    if (input.temperature() >= 40) {
+        basic.showString("Your body temperature is higher than usual. Consider staying home.")
+    } else if (input.temperature() < 36) {
+        basic.showString("Your body temperature is lower than usual. Consider staying home.")
+    } else {
+        basic.showString("Your temperature is average. You may resume regular activities.")
+    }
 })
 radio.onReceivedValue(function (name, value) {
 	
