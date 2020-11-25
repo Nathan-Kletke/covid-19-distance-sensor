@@ -1,6 +1,6 @@
 let Message = 0
 input.onButtonPressed(Button.A, function () {
-    basic.clearScreen()
+    control.reset()
 })
 input.onButtonPressed(Button.B, function () {
     basic.clearScreen()
