@@ -1,6 +1,12 @@
+let Bubble = 0
 let Message = 0
+radio.onReceivedNumber(function (receivedNumber) {
+    radio.setGroup(receivedNumber)
+})
 input.onButtonPressed(Button.A, function () {
-    control.reset()
+    Bubble = randint(0, 70)
+    radio.setGroup(Bubble)
+    radio.sendNumber(Bubble)
 })
 input.onButtonPressed(Button.B, function () {
     basic.clearScreen()
@@ -37,13 +43,7 @@ basic.forever(function () {
     radio.setTransmitPower(0.2)
     radio.sendValue("name", 0)
     if (radio.receivedPacket(RadioPacketProperty.SignalStrength) <= -81) {
-        basic.showLeds(`
-            . . # . .
-            . . # . .
-            . . # . .
-            . . . . .
-            . . # . .
-            `)
+        basic.showIcon(IconNames.No)
         music.playTone(262, music.beat(BeatFraction.Whole))
         basic.clearScreen()
     }
