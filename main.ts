@@ -1,12 +1,8 @@
-let Bubble = 0
-let Message = 0
-radio.onReceivedNumber(function (receivedNumber) {
-    radio.setGroup(receivedNumber)
-})
 input.onButtonPressed(Button.A, function () {
-    Bubble = randint(0, 70)
-    radio.setGroup(Bubble)
-    radio.sendNumber(Bubble)
+    Bubble = 2
+})
+input.onButtonPressed(Button.AB, function () {
+    Bubble = 1
 })
 input.onButtonPressed(Button.B, function () {
     basic.clearScreen()
@@ -23,6 +19,10 @@ input.onButtonPressed(Button.B, function () {
 radio.onReceivedValue(function (name, value) {
 	
 })
+let Message = 0
+let Bubble = 0
+radio.setGroup(1)
+Bubble = 1
 basic.forever(function () {
     Message = 0
     basic.pause(300000)
@@ -39,16 +39,17 @@ basic.forever(function () {
     }
 })
 basic.forever(function () {
-    radio.setGroup(1)
     radio.setTransmitPower(0.2)
     radio.sendValue("name", 0)
-    if (radio.receivedPacket(RadioPacketProperty.SignalStrength) <= -81) {
-        basic.showIcon(IconNames.No)
-        music.playTone(262, music.beat(BeatFraction.Whole))
-        basic.clearScreen()
-    }
-    if (radio.receivedPacket(RadioPacketProperty.SignalStrength) > -81) {
-        basic.clearScreen()
-        basic.pause(1000)
+    if (Bubble == 1) {
+        if (radio.receivedPacket(RadioPacketProperty.SignalStrength) <= -81) {
+            basic.showIcon(IconNames.No)
+            music.playTone(262, music.beat(BeatFraction.Whole))
+            basic.clearScreen()
+        }
+        if (radio.receivedPacket(RadioPacketProperty.SignalStrength) > -81) {
+            basic.clearScreen()
+            basic.pause(1000)
+        }
     }
 })
