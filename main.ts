@@ -1,17 +1,19 @@
 input.onButtonPressed(Button.A, function () {
     Bubble = 2
 })
+input.onButtonPressed(Button.AB, function () {
+    Bubble = 1
+})
 input.onButtonPressed(Button.B, function () {
-    basic.clearScreen()
-    basic.showString("This is your Temperature Checker.")
-    basic.showString("Please place the Micro:Bit to your forehead.")
+    Bubble = 2
     if (input.temperature() >= 40) {
-        basic.showString("Your body temperature is higher than usual. Consider staying home.")
+        basic.showString("Body temp high.")
     } else if (input.temperature() < 36) {
-        basic.showString("Your body temperature is lower than usual. Consider staying home.")
+        basic.showString("Body temp low")
     } else {
-        basic.showString("Your temperature is average. You may resume regular activities.")
+        basic.showString("Body temp avg.")
     }
+    Bubble = 1
 })
 radio.onReceivedValue(function (name, value) {
 	
@@ -39,7 +41,7 @@ basic.forever(function () {
 basic.forever(function () {
     radio.setTransmitPower(0.2)
     radio.sendValue("name", 0)
-    if (Bubble == 2) {
+    if (Bubble == 1) {
         if (radio.receivedPacket(RadioPacketProperty.SignalStrength) <= -81) {
             basic.showIcon(IconNames.No)
             music.playTone(262, music.beat(BeatFraction.Whole))
