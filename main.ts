@@ -29,14 +29,14 @@ basic.forever(function () {
     basic.pause(300000)
     Message = randint(1, 3)
     if (Message == 1) {
+        music.playMelody("C E G C5 B G E C ", 120)
         basic.showString("Remember to socially distance!")
-        music.playMelody("C E G C5 B G E C ", 120)
     } else if (Message == 2) {
+        music.playMelody("C E G C5 B G E C ", 120)
         basic.showString("Wear a mask!")
-        music.playMelody("C E G C5 B G E C ", 120)
     } else if (Message == 3) {
-        basic.showString("If you feel sick, stay home!")
         music.playMelody("C E G C5 B G E C ", 120)
+        basic.showString("If you feel sick, stay home!")
     }
 })
 basic.forever(function () {
